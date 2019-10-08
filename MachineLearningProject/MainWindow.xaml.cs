@@ -49,11 +49,11 @@ namespace MachineLearningProject
         private void StartReading_Click(object sender, RoutedEventArgs e)
         {
 
-            Nascar NascarArticles = new Nascar();
+            DictionaryClass dictionaryList = new DictionaryClass();
             selectFileToRead.IsEnabled = true;
-            NascarArticles.FillDictionary();
+            dictionaryList.FillDictionaryList();
 
-            foreach (var item in NascarArticles.NascarList)
+            foreach (var item in dictionaryList.FillDictionaryList())
             {
                 DictionaryListView.Items.Add(item);
             }

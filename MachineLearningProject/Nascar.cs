@@ -14,11 +14,13 @@ namespace MachineLearningProject
         public List<String> NascarList = new List<string>();
 
 
-        public void FillDictionary()
+        public List<String> FillNascarList()
         {
 
             try
             {
+
+                string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
                 for (int i = 1; i <= 5; i++)
                 {
 
@@ -37,7 +39,7 @@ namespace MachineLearningProject
                          */
 
                         string[] singleWord = file.ReadToEnd().ToLower()
-                            .Split(' ', ',', '.', '(', ')', '"', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '?');
+                            .Split(' ', ',', '.', '(', ')' , '"' ,'1','2','3','4','5','6','7','8','9','0','-', '?');
 
 
                         foreach (var word in singleWord)
@@ -61,6 +63,7 @@ namespace MachineLearningProject
                 MessageBox.Show("File not found!");
             }
             Console.WriteLine("size of list: " + NascarList.Count());
+            return NascarList;
         }
     }
 }

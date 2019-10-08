@@ -15,5 +15,7 @@
 
         <TextBlock Text="Output viewer" Width="75" Margin="611,46,106,350"/>
         <RichTextBox x:Name="Output" VerticalAlignment="Center" HorizontalAlignment="Right" Height="250" Width="250" Margin="25"></RichTextBox>
+       
+
     </Grid>
 </Window>
