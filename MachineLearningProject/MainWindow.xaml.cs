@@ -46,19 +46,17 @@ namespace MachineLearningProject
 
         }
 
-        public void TextOutPut()
-        {
-            
-        }
-
         private void StartReading_Click(object sender, RoutedEventArgs e)
         {
-            
-        }
 
-        private void DictionaryListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+            Nascar NascarArticles = new Nascar();
+            selectFileToRead.IsEnabled = true;
+            NascarArticles.FillDictionary();
 
+            foreach (var item in NascarArticles.NascarList)
+            {
+                DictionaryListView.Items.Add(item);
+            }
         }
     }
 }

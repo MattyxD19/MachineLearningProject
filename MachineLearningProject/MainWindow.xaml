@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="selectFileToRead" Content="Select File" Width="75" Height="25" VerticalAlignment="Bottom" Margin="40" HorizontalAlignment="Center" Click="SelectFileToRead_Click" ></Button>
-        <Button x:Name="StartReading" Content="Start" Width="75" Height="25" VerticalAlignment="Bottom" Margin="611,0,106,40" Click="StartReading_Click"></Button>
+        <Button x:Name="selectFileToRead" Content="Select File" Width="70" Height="25"  VerticalAlignment="Bottom" Margin="606,0,106,40" HorizontalAlignment="Center" Click="SelectFileToRead_Click" IsEnabled="False" ></Button>
+        <Button x:Name="StartReading" Content="Start" Height="25" VerticalAlignment="Bottom" Margin="349,0,368,40" Click="StartReading_Click" RenderTransformOrigin="-0.005,0.461"/>
 
         <TextBlock Text="Dictionary content" Margin="92,45,597,350"></TextBlock>
-        <ListView x:Name="DictionaryListView" ItemsSource="{Binding ViewListword}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="250" Width="250" Margin="25" SelectionChanged="DictionaryListView_SelectionChanged" ></ListView>
+        <ListView x:Name="DictionaryListView" ItemsSource="{Binding ViewListword}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="250" Width="250" Margin="25"></ListView>
 
-        <TextBlock Text="Output viewer" Width="75" Height="20" Margin="611,46,106,353"></TextBlock>
+        <TextBlock Text="Output viewer" Width="75" Margin="611,46,106,350"/>
         <RichTextBox x:Name="Output" VerticalAlignment="Center" HorizontalAlignment="Right" Height="250" Width="250" Margin="25"></RichTextBox>
     </Grid>
 </Window>
