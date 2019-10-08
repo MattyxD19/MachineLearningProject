@@ -1,0 +1,19 @@
+﻿<Window x:Class="MachineLearningProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MachineLearningProject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="selectFileToRead" Content="Select File" Width="75" Height="25" VerticalAlignment="Bottom" Margin="40" HorizontalAlignment="Center" Click="SelectFileToRead_Click" ></Button>
+        <Button x:Name="StartReading" Content="Start" Width="75" Height="25" VerticalAlignment="Bottom" Margin="611,0,106,40" Click="StartReading_Click"></Button>
+
+        <TextBlock Text="Dictionary content" Margin="92,45,597,350"></TextBlock>
+        <ListView x:Name="DictionaryListView" VerticalAlignment="Center" HorizontalAlignment="Left" Height="250" Width="250" Margin="25" ></ListView>
+
+        <TextBlock Text="Output viewer" Width="75" Height="20" Margin="611,46,106,353"></TextBlock>
+        <RichTextBox x:Name="Output" VerticalAlignment="Center" HorizontalAlignment="Right" Height="250" Width="250" Margin="25"></RichTextBox>
+    </Grid>
+</Window>
