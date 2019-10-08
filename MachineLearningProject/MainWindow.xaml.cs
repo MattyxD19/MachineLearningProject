@@ -36,7 +36,7 @@ namespace MachineLearningProject
 
             while (sr.EndOfStream)
             {
-                Console.WriteLine(sr.ReadLine);
+                Console.WriteLine(sr);
             }
            
 
