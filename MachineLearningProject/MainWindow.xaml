@@ -11,7 +11,7 @@
         <Button x:Name="StartReading" Content="Start" Width="75" Height="25" VerticalAlignment="Bottom" Margin="611,0,106,40" Click="StartReading_Click"></Button>
 
         <TextBlock Text="Dictionary content" Margin="92,45,597,350"></TextBlock>
-        <ListView x:Name="DictionaryListView" VerticalAlignment="Center" HorizontalAlignment="Left" Height="250" Width="250" Margin="25" ></ListView>
+        <ListView x:Name="DictionaryListView" ItemsSource="{Binding ViewListword}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="250" Width="250" Margin="25" SelectionChanged="DictionaryListView_SelectionChanged" ></ListView>
 
         <TextBlock Text="Output viewer" Width="75" Height="20" Margin="611,46,106,353"></TextBlock>
         <RichTextBox x:Name="Output" VerticalAlignment="Center" HorizontalAlignment="Right" Height="250" Width="250" Margin="25"></RichTextBox>

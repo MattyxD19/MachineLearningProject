@@ -27,6 +27,8 @@ namespace MachineLearningProject
             InitializeComponent();
         }
 
+        public string ViewListword {get; set;}
+
         private void SelectFileToRead_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog fileBrowser = new OpenFileDialog();
@@ -34,9 +36,10 @@ namespace MachineLearningProject
             DirectoryInfo selectedFile = new DirectoryInfo(fileBrowser.FileName);
             StreamReader sr = new StreamReader(selectedFile.FullName);
 
-            while (sr.EndOfStream)
+            while (!sr.EndOfStream)
             {
-                Console.WriteLine(sr);
+                Console.WriteLine(sr.ReadLine());
+                Output.Document.Blocks.Add(new Paragraph(new Run(sr.ReadLine())));
             }
            
 
@@ -51,6 +54,11 @@ namespace MachineLearningProject
         private void StartReading_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void DictionaryListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
