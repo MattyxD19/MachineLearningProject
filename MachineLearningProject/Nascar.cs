@@ -12,7 +12,7 @@ namespace MachineLearningProject
     class Nascar
     {
         public List<String> NascarList = new List<string>();
-
+        Stemming stemming = new Stemming();
 
         public List<String> FillNascarList()
         {
@@ -38,21 +38,25 @@ namespace MachineLearningProject
                          * the words have the dot and comma removed, as well as white spaces
                          */
 
-                        string[] singleWord = file.ReadToEnd().ToLower()
-                            .Split(' ', ',', '.', '(', ')' , '"' ,'1','2','3','4','5','6','7','8','9','0','-', '?');
+                        string[] singleWord = file.ReadToEnd()
+                            .Split(' ', ',','!','.','1','2','3','4','5','6','7','8','9','0','-', '?');
 
 
                         foreach (var word in singleWord)
                         {
-                            if (NascarList.Contains(word))
+                            string tempstemmer = stemming.stem(word);
+
+                            if (NascarList.Contains(tempstemmer))
                             {
                                 Console.WriteLine("Word is already in the dictionary");
                             }
 
                             else
                             {
+                                
+
                                 Console.WriteLine(word);
-                                NascarList.Add(word);
+                                NascarList.Add(tempstemmer);
                             }
                         }
                     }

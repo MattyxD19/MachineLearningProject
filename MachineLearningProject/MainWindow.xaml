@@ -7,15 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="selectFileToRead" Content="Select File" Width="70" Height="25"  VerticalAlignment="Bottom" Margin="606,0,106,40" HorizontalAlignment="Center" Click="SelectFileToRead_Click" IsEnabled="False" ></Button>
-        <Button x:Name="StartReading" Content="Start" Height="25" VerticalAlignment="Bottom" Margin="349,0,368,40" Click="StartReading_Click" RenderTransformOrigin="-0.005,0.461"/>
+        <Button x:Name="selectFileToRead" Content="Select File" Width="70" Height="28"  VerticalAlignment="Bottom" Margin="611,0,111,29" HorizontalAlignment="Center" Click="SelectFileToRead_Click"  ></Button>
+        <Button x:Name="StartReading" Content="Start" Height="28" Width="77" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="348,0,367,29" Click="StartReading_Click" IsEnabled="False" RenderTransformOrigin="0.479,1.831"/>
 
-        <TextBlock Text="Dictionary content" Margin="92,45,597,350"></TextBlock>
-        <ListView x:Name="DictionaryListView" ItemsSource="{Binding ViewListword}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="250" Width="250" Margin="25"></ListView>
+        <TextBlock Text="Dictionary content" Margin="86,10,603,362" RenderTransformOrigin="0.481,-1.319"></TextBlock>
+        <ListView x:Name="DictionaryListView" ItemsSource="{Binding ViewListword}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="295" Width="250" Margin="10"></ListView>
 
-        <TextBlock Text="Output viewer" Width="75" Margin="611,46,106,350"/>
-        <RichTextBox x:Name="Output" VerticalAlignment="Center" HorizontalAlignment="Right" Height="250" Width="250" Margin="25"></RichTextBox>
-       
+        <TextBlock Text="Vector List" HorizontalAlignment="Center" Margin="369,10,369,357" ></TextBlock>
+        <ListView x:Name="VectorListView" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="295" Margin="10"></ListView>
+
+        <TextBlock Text="Output viewer" Width="75" Margin="611,10,106,362"/>
+        <RichTextBox x:Name="Output" VerticalAlignment="Center" HorizontalAlignment="Right" Height="295" Width="250" Margin="10"></RichTextBox>
+
 
     </Grid>
 </Window>

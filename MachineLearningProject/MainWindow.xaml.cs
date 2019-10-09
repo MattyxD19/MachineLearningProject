@@ -27,8 +27,6 @@ namespace MachineLearningProject
             InitializeComponent();
         }
 
-        public string ViewListword {get; set;}
-
         private void SelectFileToRead_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog fileBrowser = new OpenFileDialog();
@@ -39,18 +37,18 @@ namespace MachineLearningProject
             while (!sr.EndOfStream)
             {
                 Console.WriteLine(sr.ReadLine());
-                Output.Document.Blocks.Add(new Paragraph(new Run(sr.ReadLine())));
+                Output.Document.Blocks.Add(new Paragraph(new Run(sr.ReadToEnd())));
             }
-           
 
+            StartReading.IsEnabled = true;
 
         }
 
         private void StartReading_Click(object sender, RoutedEventArgs e)
         {
-
+            DictionaryListView.Items.Clear();
             DictionaryClass dictionaryList = new DictionaryClass();
-            selectFileToRead.IsEnabled = true;
+            
             dictionaryList.FillDictionaryList();
 
             foreach (var item in dictionaryList.FillDictionaryList())
