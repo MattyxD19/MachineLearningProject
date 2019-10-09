@@ -11,7 +11,9 @@ namespace MachineLearningProject
     class VectorClass
     {
         public List<String> vectorList = new List<string>();
+        public List<String> unknownTextList = new List<string>();
         public MainWindow mainUI = new MainWindow();
+        public Stemming stemming = new Stemming();
         public List<String> FillVectorList()
         {
 
@@ -19,14 +21,10 @@ namespace MachineLearningProject
             return vectorList;
         }
 
-        public void CompareLists(RichTextBox rtb)
+        public void CompareLists()
         {
-            TextRange textRange = new TextRange(
-                mainUI.Output.Document.ContentStart,
-                mainUI.Output.Document.ContentEnd
-                );
-
-            string[] selectedFile = textRange.Text;
+            
+           
         }
 
     }

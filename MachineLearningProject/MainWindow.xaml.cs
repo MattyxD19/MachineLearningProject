@@ -26,9 +26,9 @@ namespace MachineLearningProject
         {
             InitializeComponent();
         }
-
         private void SelectFileToRead_Click(object sender, RoutedEventArgs e)
         {
+            Output.Clear();
             OpenFileDialog fileBrowser = new OpenFileDialog();
             fileBrowser.ShowDialog();
             DirectoryInfo selectedFile = new DirectoryInfo(fileBrowser.FileName);
@@ -37,9 +37,10 @@ namespace MachineLearningProject
             while (!sr.EndOfStream)
             {
                 Console.WriteLine(sr.ReadLine());
-                Output.Document.Blocks.Add(new Paragraph(new Run(sr.ReadToEnd())));
+              
+                Output.AppendText(sr.ReadToEnd());
             }
-
+            
             StartReading.IsEnabled = true;
 
         }

@@ -17,7 +17,7 @@
         <ListView x:Name="VectorListView" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="295" Margin="10"></ListView>
 
         <TextBlock Text="Output viewer" Width="75" Margin="611,10,106,362"/>
-        <RichTextBox x:Name="Output" VerticalAlignment="Center" HorizontalAlignment="Right" Height="295" Width="250" Margin="10"></RichTextBox>
+        <TextBox x:Name="Output" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Right" Height="295" Width="250" Margin="10" TextChanged="Output_TextChanged"></TextBox>
 
 
     </Grid>
