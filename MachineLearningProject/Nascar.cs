@@ -12,7 +12,7 @@ namespace MachineLearningProject
     class Nascar
     {
         public List<String> NascarList = new List<string>();
-        Stemming stemming = new Stemming();
+        
 
         public List<String> FillNascarList()
         {
@@ -27,8 +27,6 @@ namespace MachineLearningProject
                     string tempFileNameHolder = "{0}Resources\\" + i.ToString() + ".txt";
                     string FileName = string.Format(tempFileNameHolder, Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
 
-
-
                     StreamReader file = new StreamReader(FileName);
 
                     if (file != null)
@@ -37,26 +35,15 @@ namespace MachineLearningProject
                          * Add all the words from the texts to a single list
                          * the words have the dot and comma removed, as well as white spaces
                          */
-
-                        string[] singleWord = file.ReadToEnd()
-                            .Split(' ', ',', '!', '.', '"', '(', ')', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '\n', '?');
-
-
-                        foreach (var word in singleWord)
+                        while (!file.EndOfStream)
                         {
-                            string tempstemmer = stemming.stem(word);
+                            string[] singleWord = file.ReadLine()
+                                .Split(' ', ',', '!', '.', '"', '(', ')', '-', '?');
 
-                            if (NascarList.Contains(tempstemmer))
+
+                            foreach (var word in singleWord)
                             {
-                                Console.WriteLine("Word is already in the dictionary");
-                            }
-
-                            else
-                            {
-                                
-
-                                Console.WriteLine(word);
-                                NascarList.Add(tempstemmer);
+                                NascarList.Add(word);
                             }
                         }
                     }
@@ -66,7 +53,6 @@ namespace MachineLearningProject
             {
                 MessageBox.Show("File not found!");
             }
-            Console.WriteLine("size of list: " + NascarList.Count());
             return NascarList;
         }
     }

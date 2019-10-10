@@ -26,18 +26,24 @@ namespace MachineLearningProject
         {
             InitializeComponent();
         }
+
+        public List<string> compareList = new List<string>();
+        public OpenFileDialog fileBrowser = new OpenFileDialog();
+
+        //just used for testing/debugging
+        Stemming stemmer = new Stemming();
+        Nascar nascar = new Nascar();
+        Music music = new Music();
+
         private void SelectFileToRead_Click(object sender, RoutedEventArgs e)
         {
             Output.Clear();
-            OpenFileDialog fileBrowser = new OpenFileDialog();
             fileBrowser.ShowDialog();
             DirectoryInfo selectedFile = new DirectoryInfo(fileBrowser.FileName);
             StreamReader sr = new StreamReader(selectedFile.FullName);
 
             while (!sr.EndOfStream)
             {
-                Console.WriteLine(sr.ReadLine());
-              
                 Output.AppendText(sr.ReadToEnd());
             }
             
@@ -48,6 +54,11 @@ namespace MachineLearningProject
         private void StartReading_Click(object sender, RoutedEventArgs e)
         {
             DictionaryListView.Items.Clear();
+            VectorListView.Items.Clear();
+
+            DirectoryInfo selectedFile = new DirectoryInfo(fileBrowser.FileName);
+            StreamReader sr = new StreamReader(selectedFile.FullName);
+
             DictionaryClass dictionaryList = new DictionaryClass();
             
             dictionaryList.FillDictionaryList();
@@ -56,6 +67,28 @@ namespace MachineLearningProject
             {
                 DictionaryListView.Items.Add(item);
             }
+
+            string[] unknownTextArray = sr.ReadToEnd()
+                            .Split(' ', ',', '!', '.', '"', '(', ')', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '\n', '?');
+                foreach (var word in unknownTextArray)
+                {
+                    string tempStemmer = stemmer.stem(word);
+                    compareList.Add(tempStemmer);
+
+                    if (nascar.FillNascarList().Contains(tempStemmer))
+                    {
+                        VectorListView.Items.Add("1");
+                    }
+                    else if(music.FillMusicList().Contains(tempStemmer))
+                    {
+                        VectorListView.Items.Add(1);
+                    }
+                    else
+                    {
+                        VectorListView.Items.Add("0");
+                    }
+
+                }
         }
     }
 }

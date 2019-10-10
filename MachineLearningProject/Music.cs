@@ -14,7 +14,7 @@ namespace MachineLearningProject
         public List<String> FillMusicList()
         {
             List<String> MusicList = new List<String>();
-            Stemming stemming = new Stemming();
+           
             try
             {
                 string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
@@ -32,23 +32,15 @@ namespace MachineLearningProject
                          * Add all the words from the texts to a single list
                          * the words have the dot and comma removed, as well as white spaces
                          */
-                        
-                        string[] singleWord = file.ReadToEnd()
-                            .Split(' ', ',', '!', '.', '"', '(', ')', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '\n', '?');
 
-
-                        foreach (var word in singleWord)
+                        while (!file.EndOfStream)
                         {
-                            string tempstemmer = stemming.stem(word);
+                            string[] singleWord = file.ReadLine()
+                                .Split(' ', ',', '!', '.', '"', '(', ')', '-', '?');
 
-                            if (MusicList.Contains(tempstemmer))
-                            {
-                                Console.WriteLine("Word is already in the dictionary");
-                            }
 
-                            else
+                            foreach (var word in singleWord)
                             {
-                                Console.WriteLine(word);
                                 MusicList.Add(word);
                             }
                         }
@@ -59,10 +51,8 @@ namespace MachineLearningProject
             {
                 MessageBox.Show("File not found!");
             }
-            Console.WriteLine("size of list: " + MusicList.Count());
             return MusicList;
         }
-        
     }
 }
 
