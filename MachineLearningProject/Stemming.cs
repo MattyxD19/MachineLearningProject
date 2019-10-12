@@ -111,7 +111,8 @@ namespace MachineLearningProject
         {"bias","bias"},
         {"andes","andes"},
         {"several", "several" },
-        {"kansas","kansas" }
+        {"kansas","kansas" },
+        {"e","e" }
 
         };
 
