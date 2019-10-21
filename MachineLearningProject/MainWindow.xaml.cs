@@ -130,12 +130,12 @@ namespace MachineLearningProject
 
         private void ShowNearestNeighborg_Click(object sender, RoutedEventArgs e)
         {
+            /**
             Vector distanceVector(int x, int y)
             {
-                Vector sum;
-                sum = 
-                return sum;
+               
             }
+            **/
             
         }
     }
