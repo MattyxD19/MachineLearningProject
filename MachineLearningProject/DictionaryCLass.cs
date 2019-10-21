@@ -15,7 +15,55 @@ namespace MachineLearningProject
 
         public List<String> FillDictionaryList()
         {
-            foreach (var nascarWord in nascarClass.FillNascarList())
+            foreach (var nascarWord in nascarClass.FillNascarList1())
+            {
+                if (nascarWord.Equals(" "))
+                {
+
+                }
+                else
+                {
+                    string tempStemmer = stemmer.stem(nascarWord);
+                    dictionaryList.Add(tempStemmer);
+                }
+            }
+            foreach (var nascarWord in nascarClass.FillNascarList2())
+            {
+                if (nascarWord.Equals(" "))
+                {
+
+                }
+                else
+                {
+                    string tempStemmer = stemmer.stem(nascarWord);
+                    dictionaryList.Add(tempStemmer);
+                }
+            }
+            foreach (var nascarWord in nascarClass.FillNascarList3())
+            {
+                if (nascarWord.Equals(" "))
+                {
+
+                }
+                else
+                {
+                    string tempStemmer = stemmer.stem(nascarWord);
+                    dictionaryList.Add(tempStemmer);
+                }
+            }
+            foreach (var nascarWord in nascarClass.FillNascarList4())
+            {
+                if (nascarWord.Equals(" "))
+                {
+
+                }
+                else
+                {
+                    string tempStemmer = stemmer.stem(nascarWord);
+                    dictionaryList.Add(tempStemmer);
+                }
+            }
+            foreach (var nascarWord in nascarClass.FillNascarList5())
             {
                 if (nascarWord.Equals(" "))
                 {
@@ -28,16 +76,10 @@ namespace MachineLearningProject
                 }
             }
 
-            foreach (var musicWord in musicClass.FillMusicList())
+            foreach (var musicWord in musicClass.FillMusicList6())
             {
-                //since since a word might be repeated it is filtered out
-                if (dictionaryList.Contains(musicWord))
-                {
-
-                    Console.WriteLine("\n");
-                }
                 //if the word isnt inside the list then it is added after it has been stemmed
-                else if (musicWord.Equals(" "))
+                if (musicWord.Equals(" "))
                 {
 
                 }
@@ -45,8 +87,108 @@ namespace MachineLearningProject
                 {
 
                     string tempStemmer = stemmer.stem(musicWord);
-                    dictionaryList.Add(tempStemmer);
+                    if (dictionaryList.Contains(tempStemmer))
+                    {
+                        Console.WriteLine("\n");
+                    }
+                    else
+                    {
+                       dictionaryList.Add(tempStemmer);
+                    }
                 }
+
+            }
+
+            foreach (var musicWord in musicClass.FillMusicList7())
+            {
+                //if the word isnt inside the list then it is added after it has been stemmed
+                if (musicWord.Equals(" "))
+                {
+
+                }
+                else
+                {
+
+                    string tempStemmer = stemmer.stem(musicWord);
+                    if (dictionaryList.Contains(tempStemmer))
+                    {
+                        Console.WriteLine("\n");
+                    }
+                    else
+                    {
+                        dictionaryList.Add(tempStemmer);
+                    }
+                }
+
+            }
+
+            foreach (var musicWord in musicClass.FillMusicList8())
+            {
+                //if the word isnt inside the list then it is added after it has been stemmed
+                if (musicWord.Equals(" "))
+                {
+
+                }
+                else
+                {
+
+                    string tempStemmer = stemmer.stem(musicWord);
+                    if (dictionaryList.Contains(tempStemmer))
+                    {
+                        Console.WriteLine("\n");
+                    }
+                    else
+                    {
+                        dictionaryList.Add(tempStemmer);
+                    }
+                }
+
+            }
+
+            foreach (var musicWord in musicClass.FillMusicList9())
+            {
+                //if the word isnt inside the list then it is added after it has been stemmed
+                if (musicWord.Equals(" "))
+                {
+
+                }
+                else
+                {
+
+                    string tempStemmer = stemmer.stem(musicWord);
+                    if (dictionaryList.Contains(tempStemmer))
+                    {
+                        Console.WriteLine("\n");
+                    }
+                    else
+                    {
+                        dictionaryList.Add(tempStemmer);
+                    }
+                }
+
+            }
+
+            foreach (var musicWord in musicClass.FillMusicList10())
+            {
+                //if the word isnt inside the list then it is added after it has been stemmed
+                if (musicWord.Equals(" "))
+                {
+
+                }
+                else
+                {
+
+                    string tempStemmer = stemmer.stem(musicWord);
+                    if (dictionaryList.Contains(tempStemmer))
+                    {
+                        Console.WriteLine("\n");
+                    }
+                    else
+                    {
+                        dictionaryList.Add(tempStemmer);
+                    }
+                }
+
             }
 
             Console.WriteLine(dictionaryList.Count);

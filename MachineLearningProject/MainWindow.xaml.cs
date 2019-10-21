@@ -3,17 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace MachineLearningProject
 {
@@ -34,6 +26,7 @@ namespace MachineLearningProject
         Stemming stemmer = new Stemming();
         Nascar nascar = new Nascar();
         Music music = new Music();
+        
 
         private void SelectFileToRead_Click(object sender, RoutedEventArgs e)
         {
@@ -61,7 +54,7 @@ namespace MachineLearningProject
 
             DictionaryClass dictionaryList = new DictionaryClass();
             
-            dictionaryList.FillDictionaryList();
+            //dictionaryList.FillDictionaryList();
 
             foreach (var item in dictionaryList.FillDictionaryList())
             {
@@ -69,26 +62,81 @@ namespace MachineLearningProject
             }
 
             string[] unknownTextArray = sr.ReadToEnd()
-                            .Split(' ', ',', '!', '.', '"', '(', ')', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '\n', '?');
-                foreach (var word in unknownTextArray)
+                            .Split(' ');
+
+            for (int i = 0; i < DictionaryListView.Items.Count; i++)
+            {
+                if (i < unknownTextArray.Length)
                 {
-                    string tempStemmer = stemmer.stem(word);
+                    string tempStemmer = stemmer.stem(unknownTextArray[i]);
                     compareList.Add(tempStemmer);
 
-                    if (nascar.FillNascarList().Contains(tempStemmer))
+                    if (nascar.FillNascarList1().Contains(tempStemmer))
                     {
-                        VectorListView.Items.Add("1");
+                        VectorListView.Items.Add(1);
                     }
-                    else if(music.FillMusicList().Contains(tempStemmer))
+                    else if (nascar.FillNascarList2().Contains(tempStemmer))
+                    {
+                        VectorListView.Items.Add(1);
+                    }
+                    else if (nascar.FillNascarList3().Contains(tempStemmer))
+                    {
+                        VectorListView.Items.Add(1);
+                    }
+                    else if (nascar.FillNascarList4().Contains(tempStemmer))
+                    {
+                        VectorListView.Items.Add(1);
+                    }
+                    else if (nascar.FillNascarList5().Contains(tempStemmer))
+                    {
+                        VectorListView.Items.Add(1);
+                    }
+                    else if (music.FillMusicList6().Contains(tempStemmer))
+                    {
+                        VectorListView.Items.Add(1);
+                    }
+                    else if (music.FillMusicList7().Contains(tempStemmer))
+                    {
+                        VectorListView.Items.Add(1);
+                    }
+                    else if (music.FillMusicList8().Contains(tempStemmer))
+                    {
+                        VectorListView.Items.Add(1);
+                    }
+                    else if (music.FillMusicList9().Contains(tempStemmer))
+                    {
+                        VectorListView.Items.Add(1);
+                    }
+                    else if (music.FillMusicList10().Contains(tempStemmer))
                     {
                         VectorListView.Items.Add(1);
                     }
                     else
                     {
-                        VectorListView.Items.Add("0");
+                        VectorListView.Items.Add(0);
                     }
-
                 }
+                else
+                {
+                    VectorListView.Items.Add(0);
+                }   
+            }
+
+            ShowNearestNeighborg.IsEnabled = true;
+
+            Console.WriteLine(VectorListView.Items.Count);
+            Console.WriteLine("compareList: " + compareList.Count);
+        }
+
+        private void ShowNearestNeighborg_Click(object sender, RoutedEventArgs e)
+        {
+            Vector distanceVector(int x, int y)
+            {
+                Vector sum;
+                sum = 
+                return sum;
+            }
+            
         }
     }
 }
